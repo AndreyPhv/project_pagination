@@ -22,6 +22,7 @@
                 {
                     $last_page = $paginator->lastPage();
                     $first_page = $last_page - env('PAGINATION_DISPLAYED_PAGES_NUM') + 1;
+                    $first_page = $first_page > 0 ? $first_page : 1;
                 }
             $elements = $paginator->getUrlRange($first_page, $last_page);
             ?>

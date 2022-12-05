@@ -20,6 +20,20 @@
             @endforeach
         </tbody>
     </table>
-    <div>{{ $posts->links() }}</div>
+    <div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="/posts/page/1">First</a></li>
+                @foreach($pagination_pages as $page)
+                    @if($page == $current_page)
+                        <li class="page-item active"><a class="page-link" href="/posts/page/{{$page}}">{{$page}}</a></li>
+                    @else
+                        <li class="page-item"><a class="page-link" href="/posts/page/{{$page}}">{{$page}}</a></li>
+                    @endif
+                @endforeach
+                <li class="page-item"><a class="page-link" href="/posts/page/{{$page_count}}">Last</a></li>
+            </ul>
+        </nav>
+    </div>
 
 @endsection
