@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index($page = 1)
+    public function index($page)
     {
 //  проверка на выход за пределы допустимых страниц
         $page_count = ceil(Post::count() / env('PAGINATION_ITEMS_PER_PAGE'));
